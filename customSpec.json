@@ -14,8 +14,8 @@
       },
       "aura": {
         "authorities": [
+          "5C5zVX5WH5PoHAPR27xus3CvvUVo6egT1VRs2NGZMYRe2o2s",
           "5E9tH3DfTK4ocWWvM87N54c3wDzGdh496cRgFAenKvWzrHzz",
-          "5GB17MYVuVxtirTXerTR6QCvQaVBkes6cgQRUgJWywY4uVhP",
           "5DcM1GJgqKnDKR9kRSDWrdm5Dd6rPDCvuHjcKyasWskiKvRa"
         ]
       },
@@ -38,11 +38,11 @@
       "balances": {
         "balances": [
           [
-            "5E9tH3DfTK4ocWWvM87N54c3wDzGdh496cRgFAenKvWzrHzz",
+            "5C5zVX5WH5PoHAPR27xus3CvvUVo6egT1VRs2NGZMYRe2o2s",
             1152921504606846976
           ],
           [
-            "5GB17MYVuVxtirTXerTR6QCvQaVBkes6cgQRUgJWywY4uVhP",
+            "5E9tH3DfTK4ocWWvM87N54c3wDzGdh496cRgFAenKvWzrHzz",
             1152921504606846976
           ],
           [
@@ -103,7 +103,7 @@
         "multiplier": "1000000000000000000"
       },
       "sudo": {
-        "key": "5E9tH3DfTK4ocWWvM87N54c3wDzGdh496cRgFAenKvWzrHzz"
+        "key": "5C5zVX5WH5PoHAPR27xus3CvvUVo6egT1VRs2NGZMYRe2o2s"
       },
       "assets": {
         "assets": [],

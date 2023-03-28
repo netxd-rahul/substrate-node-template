@@ -112,7 +112,10 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
   Public key (SS58): 5F6XjjpkuyxUnUH3W45VQM6rgo4BcrBrJAi3uwjQCHFFWRCK
   SS58 Address:      5F6XjjpkuyxUnUH3W45VQM6rgo4BcrBrJAi3uwjQCHFFWRCK
 ```
-
+### Aura Node Addresses
+- Node 1: 5C5zVX5WH5PoHAPR27xus3CvvUVo6egT1VRs2NGZMYRe2o2s
+- Node 2: 5E9tH3DfTK4ocWWvM87N54c3wDzGdh496cRgFAenKvWzrHzz
+- Node 3: 5DcM1GJgqKnDKR9kRSDWrdm5Dd6rPDCvuHjcKyasWskiKvRa
 ### Grandpa Node Addresses
 - Node 1: 5HauBsZXjaRfBDmotWorrEh15W2mGB7c33H7o7mHdCfZGvDf
 - Node 2: 5GB17MYVuVxtirTXerTR6QCvQaVBkes6cgQRUgJWywY4uVhP
@@ -148,7 +151,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --name Node01 \
     --password-interactive
     ```
-      - Node Identity: 12D3KooWFhuPkSZehPkG37ooM9RpmZ7mjQYJgcX6bPPwn8b7Go79
+      - Node Identity: 12D3KooWBzjWk4qP3Zmfk4DCEtSnvNqqLax3fLdggzJXxuuuXEb4
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node01 \
@@ -195,10 +198,10 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --validator \
     --rpc-methods Unsafe \
     --name Node02 \
-    --bootnodes /ip4/3.81.80.108/tcp/30333/p2p/12D3KooWFhuPkSZehPkG37ooM9RpmZ7mjQYJgcX6bPPwn8b7Go79 
+    --bootnodes /ip4/3.81.80.108/tcp/30333/p2p/12D3KooWBzjWk4qP3Zmfk4DCEtSnvNqqLax3fLdggzJXxuuuXEb4 \
     --password-interactive
     ```
-      - Node Identity: 12D3KooWMAe6A5mN7Q2t8MzWcwqp1eijnyReAE8fwDWHNYRLsMnU
+      - Node Identity: 12D3KooWT2dnP83qczNwuxLrMrBvaVAn1swsrNEoZTRoHsM6o2WC
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node02 \
@@ -245,10 +248,10 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --validator \
     --rpc-methods Unsafe \
     --name Node03 \
-    --bootnodes /ip4/3.81.80.108/tcp/30333/p2p/12D3KooWFhuPkSZehPkG37ooM9RpmZ7mjQYJgcX6bPPwn8b7Go79 
+    --bootnodes /ip4/3.81.80.108/tcp/30333/p2p/12D3KooWBzjWk4qP3Zmfk4DCEtSnvNqqLax3fLdggzJXxuuuXEb4 \
     --password-interactive
     ```
-      - Node Identity: 12D3KooWKsfdnxztJczoyp7MZQ1PotL41pg1KRFHQLZsNVajUnkC
+      - Node Identity: 12D3KooWRkjG8QrGysR87qmpXkahVihm4tFxnVrsUhWT4RWrz4ek
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node03 \
