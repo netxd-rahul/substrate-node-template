@@ -151,7 +151,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --name Node01 \
     --password-interactive
     ```
-      - Node Identity: 12D3KooWBzjWk4qP3Zmfk4DCEtSnvNqqLax3fLdggzJXxuuuXEb4
+      - Node Identity: 12D3KooWPkMijS8GUuncgp3QT3QbgegLEskPzeMhQVjw9NuZPNL1
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node01 \
@@ -198,10 +198,10 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --validator \
     --rpc-methods Unsafe \
     --name Node02 \
-    --bootnodes /ip4/3.81.80.108/tcp/30333/p2p/12D3KooWBzjWk4qP3Zmfk4DCEtSnvNqqLax3fLdggzJXxuuuXEb4 \
+    --bootnodes /ip4/3.81.80.108/tcp/30333/p2p/12D3KooWPkMijS8GUuncgp3QT3QbgegLEskPzeMhQVjw9NuZPNL1 \
     --password-interactive
     ```
-      - Node Identity: 12D3KooWT2dnP83qczNwuxLrMrBvaVAn1swsrNEoZTRoHsM6o2WC
+      - Node Identity: 12D3KooWKpb2fwEHeKvnmF4scmsBr94gQegwoRWygLzcM22s2bWZ
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node02 \
@@ -248,10 +248,10 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --validator \
     --rpc-methods Unsafe \
     --name Node03 \
-    --bootnodes /ip4/3.81.80.108/tcp/30333/p2p/12D3KooWBzjWk4qP3Zmfk4DCEtSnvNqqLax3fLdggzJXxuuuXEb4 \
+    --bootnodes /ip4/3.81.80.108/tcp/30333/p2p/12D3KooWPkMijS8GUuncgp3QT3QbgegLEskPzeMhQVjw9NuZPNL1 \
     --password-interactive
     ```
-      - Node Identity: 12D3KooWRkjG8QrGysR87qmpXkahVihm4tFxnVrsUhWT4RWrz4ek
+      - Node Identity: 12D3KooWMdWFg4HZx4r74d7G49zXxSJaa756p8ceA32aKNF4J8X6
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node03 \
@@ -275,7 +275,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
 ### Notes
   - you should see the same genesis block and state root hashes.
   - state root hash: 0xfa05e1497bc6ba354bd9ba979a997362cf6292b0f1006b8f7efa98f39a259231
-  - Genesis block/state (state: 0x7904…6b93, header-hash: 0xa33d…3833)
+  - Genesis block/state (state: 0x59ad…ebd7, header-hash: 0x2dd7…bb02)
 
 ### Substrate Predefined Accounts
 ```
