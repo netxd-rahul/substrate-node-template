@@ -29,7 +29,7 @@
 Steps Involved:
 1. Purge Existing Chains, if you want to upgrade the chain, purging is not necessary.
 2. Generate AURA and GRANDPA Keys
-3. Update Custom Chain Specification accordingly with updated keys # In current repository, we've already pushed an updated chainSpec.json | To generate: `./target/release/node-template build-spec --disable-default-bootnode --chain local > customSpec.json`
+3. Update Custom Chain Specification accordingly with updated keys # In current repository, we've already pushed an updated chainSpec.json | To generate: `./target/release/node-template build-spec --disable-default-bootnode --chain local > customSpec.json` then `./target/release/node-template build-spec --chain=customSpec.json --raw --disable-default-bootnode > customSpecRaw.json`
 4. Spin Nodes
 
 ### Purge Any Existing Chain, if any: 
@@ -138,7 +138,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     ```
     ./target/release/node-template \
     --base-path /tmp/node01 \
-    --chain ./customSpec.json \
+    --chain ./customSpecRaw.json \
     --port 30333 \
     --ws-port 9945 \
     --rpc-port 9933 \
@@ -152,7 +152,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node01 \
-        --chain customSpec.json \
+        --chain customSpecRaw.json \
         --scheme Sr25519 \
         --suri "very museum phone decade snack design lock throw brother fly dwarf great" \
         --password-interactive \
@@ -160,7 +160,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
 
       ./target/release/node-template key insert \
         --base-path /tmp/node01 \
-        --chain customSpec.json \
+        --chain customSpecRaw.json \
         --scheme Ed25519 \
         --suri "very museum phone decade snack design lock throw brother fly dwarf great" \
         --password-interactive \
@@ -187,7 +187,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     ```
     ./target/release/node-template \
     --base-path /tmp/node02 \
-    --chain ./customSpec.json \
+    --chain ./customSpecRaw.json \
     --port 30333 \
     --ws-port 9945 \
     --rpc-port 9933 \
@@ -202,7 +202,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node01 \
-        --chain customSpec.json \
+        --chain customSpecRaw.json \
         --scheme Sr25519 \
         --suri "tide front tattoo nerve kingdom resist organ recipe chicken chimney area then" \
         --password-interactive \
@@ -210,7 +210,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
 
       ./target/release/node-template key insert \
         --base-path /tmp/node02 \
-        --chain customSpec.json \
+        --chain customSpecRaw.json \
         --scheme Ed25519 \
         --suri "tide front tattoo nerve kingdom resist organ recipe chicken chimney area then" \
         --password-interactive \
@@ -237,7 +237,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     ```
     ./target/release/node-template \
     --base-path /tmp/node03 \
-    --chain ./customSpec.json \
+    --chain ./customSpecRaw.json \
     --port 30333 \
     --ws-port 9945 \
     --rpc-port 9933 \
@@ -252,7 +252,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node01 \
-        --chain customSpec.json \
+        --chain customSpecRaw.json \
         --scheme Sr25519 \
         --suri "taste seek proof milk scene trumpet account run toilet absorb elegant bullet" \
         --password-interactive \
@@ -260,7 +260,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
 
       ./target/release/node-template key insert \
         --base-path /tmp/node01 \
-        --chain customSpec.json \
+        --chain customSpecRaw.json \
         --scheme Ed25519 \
         --suri "taste seek proof milk scene trumpet account run toilet absorb elegant bullet" \
         --password-interactive \
