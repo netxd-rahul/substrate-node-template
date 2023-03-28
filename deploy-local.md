@@ -148,7 +148,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --name Node01 \
     --password-interactive
     ```
-      - Node Identity: 12D3KooWFHJBrGApB2h68hU3WCBF4QsBkznPMcpxSE3zaR3Wz2qe
+      - Node Identity: 12D3KooWFhuPkSZehPkG37ooM9RpmZ7mjQYJgcX6bPPwn8b7Go79
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node01 \
@@ -195,13 +195,13 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --validator \
     --rpc-methods Unsafe \
     --name Node02 \
-    --bootnodes /ip4/127.0.0.1/tcp/30333/p2p/12D3KooWFHJBrGApB2h68hU3WCBF4QsBkznPMcpxSE3zaR3Wz2qe 
+    --bootnodes /ip4/3.81.80.108/tcp/30333/p2p/12D3KooWFhuPkSZehPkG37ooM9RpmZ7mjQYJgcX6bPPwn8b7Go79 
     --password-interactive
     ```
-      - Node Identity: 12D3KooWRR5HysAkD7NL5gdj7MTUf8syfQRSajDLu5DVqBSj9Qw3
+      - Node Identity: 12D3KooWMAe6A5mN7Q2t8MzWcwqp1eijnyReAE8fwDWHNYRLsMnU
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
-      ./target/release/node-template key insert --base-path /tmp/node01 \
+      ./target/release/node-template key insert --base-path /tmp/node02 \
         --chain customSpecRaw.json \
         --scheme Sr25519 \
         --suri "tide front tattoo nerve kingdom resist organ recipe chicken chimney area then" \
@@ -245,13 +245,13 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --validator \
     --rpc-methods Unsafe \
     --name Node03 \
-    --bootnodes /ip4/127.0.0.1/tcp/30333/p2p/12D3KooWFHJBrGApB2h68hU3WCBF4QsBkznPMcpxSE3zaR3Wz2qe 
+    --bootnodes /ip4/3.81.80.108/tcp/30333/p2p/12D3KooWFhuPkSZehPkG37ooM9RpmZ7mjQYJgcX6bPPwn8b7Go79 
     --password-interactive
     ```
-      - Node Identity: 
+      - Node Identity: 12D3KooWKsfdnxztJczoyp7MZQ1PotL41pg1KRFHQLZsNVajUnkC
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
-      ./target/release/node-template key insert --base-path /tmp/node01 \
+      ./target/release/node-template key insert --base-path /tmp/node03 \
         --chain customSpecRaw.json \
         --scheme Sr25519 \
         --suri "taste seek proof milk scene trumpet account run toilet absorb elegant bullet" \
@@ -259,7 +259,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
         --key-type aura
 
       ./target/release/node-template key insert \
-        --base-path /tmp/node01 \
+        --base-path /tmp/node03 \
         --chain customSpecRaw.json \
         --scheme Ed25519 \
         --suri "taste seek proof milk scene trumpet account run toilet absorb elegant bullet" \
@@ -272,6 +272,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
 ### Notes
   - you should see the same genesis block and state root hashes.
   - state root hash: 0xfa05e1497bc6ba354bd9ba979a997362cf6292b0f1006b8f7efa98f39a259231
+  - Genesis block/state (state: 0x7904…6b93, header-hash: 0xa33d…3833)
 
 ### Substrate Predefined Accounts
 ```
