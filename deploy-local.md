@@ -15,15 +15,19 @@
     1. Test Smart Contract: `cargo test`
     2. Check dependencies: `cargo check -p flipper --release`
     3. Building Release using Cargo Contract CLI: `cargo contract build --release` // Install if needed referring here: https://github.com/paritytech/cargo-contract#installation 
-    4. Instantiate/Deploy Contract using Cargo Contract CLI: `cargo contract instantiate --constructor new --args "false" --suri //Alice --salt $(date +%s) --execute`
-        - Note: used default alice's account available in dev chain to deploy and pay the gas fee
-        - Above command deploys contract on local running dev chain and returns as follows:
+    4. Instantiate/Deploy Contract using Cargo Contract CLI: `cargo contract instantiate --constructor new --args "false" --suri //Alice --salt $(date +%s) --execute --url ws://54.89.90.13:9945`
+        - Note: used default alice's account available in dev chain to deploy and pay the gas fee. Alice Account is already prefunded
+        - Above command deploys contract on local running dev chain, if no --url flag is mentioned and returns as follows:
         ```
-        Code hash 0x4789e25913289df769d23461e707095774fb9dab74d66cdfff805e9498d77ac0    // Code Hash
-        Contract 5Cd9AMd5Xj6TqKVUKMkZegYZmp1FYViNZ4TYYtDsJX1DYevM                       // Contract ID
+        Code hash 0x55c024762587c9e35117641fb6bd3f9f50c5cfc1038a4b9e8a23c4134e875574
+        Contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse                     // Contract ID
         ```
-    5. Invoke Contract's Getter Function: `cargo contract call --contract 5Cd9AMd5Xj6TqKVUKMkZegYZmp1FYViNZ4TYYtDsJX1DYevM --message get --suri //Alice`
-    6. Invoke Contract's Setter Function: `cargo contract call --contract 5Cd9AMd5Xj6TqKVUKMkZegYZmp1FYViNZ4TYYtDsJX1DYevM --message flip --suri //Alice --execute --gas 7983333376  --proof-size 262144 --skip-dry-run`
+    5. Invoke Contract's Getter Function: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message get --suri //Alice --url ws://54.89.90.13:9945`
+    6. Invoke Contract's Setter Function: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message flip --suri //Alice --execute --gas 7983333376  --proof-size 262144 --url ws://54.89.90.13:9945`
+    7. Invoke Contract's Getter Function on Node 2: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message get --suri //Alice --url ws://54.198.203.189:9945`
+    8. Invoke Contract's Setter Function on Node 2: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message flip --suri //Alice --execute --gas 7983333376  --proof-size 262144 --url ws://54.198.203.189:9945`
+    9. Invoke Contract's Getter Function using non-funded Custom Account: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message get --suri "column follow fine steel mosquito tuition gaze spare join area release bitter" --url ws://54.89.90.13:9945`
+    10. Invoke Contract's Setter Function using funded Custom Account: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message flip --suri "tide front tattoo nerve kingdom resist organ recipe chicken chimney area then" --password 12345678 --execute --gas 7983333376  --proof-size 262144 --url ws://54.89.90.13:9945`
 
 ## Next: Setting up Multi Node environment
 Steps Involved:
@@ -149,9 +153,12 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --validator \
     --rpc-methods Unsafe \
     --name Node01 \
-    --password-interactive
+    --password-interactive \
+    --ws-external \
+    --rpc-external \
+    --rpc-cors all 
     ```
-      - Node Identity: 12D3KooWPkMijS8GUuncgp3QT3QbgegLEskPzeMhQVjw9NuZPNL1
+      - Node Identity: 12D3KooWR93KVfCTyzXqdXY5bWMP4wCQawTFMR4zKNWZhMTrgFAc
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node01 \
@@ -198,10 +205,13 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --validator \
     --rpc-methods Unsafe \
     --name Node02 \
-    --bootnodes /ip4/3.81.80.108/tcp/30333/p2p/12D3KooWPkMijS8GUuncgp3QT3QbgegLEskPzeMhQVjw9NuZPNL1 \
-    --password-interactive
+    --bootnodes /ip4/54.89.90.13/tcp/30333/p2p/12D3KooWR93KVfCTyzXqdXY5bWMP4wCQawTFMR4zKNWZhMTrgFAc \
+    --password-interactive \
+    --ws-external \
+    --rpc-external \
+    --rpc-cors all 
     ```
-      - Node Identity: 12D3KooWKpb2fwEHeKvnmF4scmsBr94gQegwoRWygLzcM22s2bWZ
+      - Node Identity: 12D3KooWSZGo2YCoFoed7fm9YgJXmH7a1MzRB8uCJhPLxwH6utyx
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node02 \
@@ -248,10 +258,13 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --validator \
     --rpc-methods Unsafe \
     --name Node03 \
-    --bootnodes /ip4/3.81.80.108/tcp/30333/p2p/12D3KooWPkMijS8GUuncgp3QT3QbgegLEskPzeMhQVjw9NuZPNL1 \
-    --password-interactive
+    --bootnodes /ip4/54.89.90.13/tcp/30333/p2p/12D3KooWR93KVfCTyzXqdXY5bWMP4wCQawTFMR4zKNWZhMTrgFAc \
+    --password-interactive \
+    --ws-external \
+    --rpc-external \
+    --rpc-cors all 
     ```
-      - Node Identity: 12D3KooWMdWFg4HZx4r74d7G49zXxSJaa756p8ceA32aKNF4J8X6
+      - Node Identity: 12D3KooWCiSnReUkxzkdrXZ7zQYgB6MqQooxsPeT7yyzhkDuyZa5
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node03 \
@@ -274,8 +287,8 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
 
 ### Notes
   - you should see the same genesis block and state root hashes.
-  - state root hash: 0xfa05e1497bc6ba354bd9ba979a997362cf6292b0f1006b8f7efa98f39a259231
-  - Genesis block/state (state: 0x59ad…ebd7, header-hash: 0x2dd7…bb02)
+  - state root hash: 0x2dd7046e55d09c05af2c4126f3a5715f2d5fa808a553548bab5a1a97f4babb02
+  - Genesis block/state (state: 0x2dd7046e55d09c05af2c4126f3a5715f2d5fa808a553548bab5a1a97f4babb02, header-hash: 0x2dd7…bb02)
 
 ### Substrate Predefined Accounts
 ```
@@ -323,8 +336,18 @@ Peer identifier decoded to hex  0x002408011220c81bc1d7057a1511eb9496f056f6f53cdf
 				],
 ```
 
-### substrate account
+### Random Substrate Accounts
 `tray over muffin monster decline labor dream math kidney find task turkey`
+```
+Key Password: 12345678
+Secret phrase:       column follow fine steel mosquito tuition gaze spare join area release bitter
+  Network ID:        substrate
+  Secret seed:       0xd8e441dadad4ffe91fffdbad9afb4937546d8855323c332ab744b00c5bb50b64
+  Public key (hex):  0x8cb1536d3b6a53834cd554f4697002e309ef964dd7d410a9d3c63c50e69d202a
+  Account ID:        0x8cb1536d3b6a53834cd554f4697002e309ef964dd7d410a9d3c63c50e69d202a
+  Public key (SS58): 5FFBEkFFGyWCC1pyAw4MqrgkdLU8UzBB8SLV4HZEWXcDo6M8
+  SS58 Address:      5FFBEkFFGyWCC1pyAw4MqrgkdLU8UzBB8SLV4HZEWXcDo6M8
+```
 ### susbstrate permissioned network with node-authorization-pallete (Not Implemented)
 // kept for reference purposes
 ```
