@@ -19,7 +19,7 @@
 ### Setter Functions
 - transfer(to,value) on Node01: `cargo contract call --contract 5Dm16njwuzyHXPC7AcuXJsCGdCYQCndJopsEFS6cZATBXMPU --message transfer --args 5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty 100 --suri //Alice --url ws://54.89.90.13:9945 --execute --gas 7983333376  --proof-size 262144` // alice sends 100 tokens to bob
 - approve(spender,value) on Node02: `cargo contract call --contract 5Dm16njwuzyHXPC7AcuXJsCGdCYQCndJopsEFS6cZATBXMPU --message approve --args 5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y 1000 --suri //Alice --url ws://54.198.203.189:9945 --execute --gas 7983333376  --proof-size 262144` // alice approves charlie to spend 1000 tokens on her behalf
-- transfer_from(from, to, value) on Node03: `cargo contract call --contract 5Dm16njwuzyHXPC7AcuXJsCGdCYQCndJopsEFS6cZATBXMPU --message transfer_from --args 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY 5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty 400 --suri //Charlie --url ws://54.89.90.13:9945 --execute --gas 7983333376  --proof-size 262144` // charlie sends on behalf of alice, 400 tokens to bob.
+- transfer_from(from, to, value) on Node03: `cargo contract call --contract 5Dm16njwuzyHXPC7AcuXJsCGdCYQCndJopsEFS6cZATBXMPU --message transfer_from --args 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY 5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty 400 --suri //Charlie --url ws://34.207.133.2:9945 --execute --gas 7983333376  --proof-size 262144` // charlie sends on behalf of alice, 400 tokens to bob.
 
 ### Predefined Accounts
 ```

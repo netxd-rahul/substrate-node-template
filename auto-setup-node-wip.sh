@@ -59,3 +59,22 @@ cat /tmp/node01/chains/local_testnet/keystore/$KEY2
     --ws-external \
     --rpc-external \
     --rpc-cors all 
+
+
+# AWS Session Manager - For Spinning Multiple Nodes
+# cd /home/ssm-user/pallet-contract-integration/substrate-node-template
+
+# # Fresh Setup
+# git branch
+# git checkout pallet-contract-v0.9.37
+# export PATH="$HOME/.cargo/bin:$PATH”
+# cargo build --release
+
+# # Update
+# git pull
+# rm -rf /tmp/node03
+# cargo build --release
+
+# Fresh: Purge Chain + Purge Existing Code -> Clone -> Checkout -> Build -> Spin -> Save -> Spin
+# Update: Pull -> Purge Chain -> Build -> Spin -> Save -> Spin
+# ReInitiate: Purge Chain -> Build -> Spin -> Save -> Spin

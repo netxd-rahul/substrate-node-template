@@ -22,12 +22,10 @@
         Code hash 0x55c024762587c9e35117641fb6bd3f9f50c5cfc1038a4b9e8a23c4134e875574
         Contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse                     // Contract ID
         ```
-    5. Invoke Contract's Getter Function: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message get --suri //Alice --url ws://54.89.90.13:9945`
-    6. Invoke Contract's Setter Function: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message flip --suri //Alice --execute --gas 7983333376  --proof-size 262144 --url ws://54.89.90.13:9945`
-    7. Invoke Contract's Getter Function on Node 2: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message get --suri //Alice --url ws://54.198.203.189:9945`
-    8. Invoke Contract's Setter Function on Node 2: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message flip --suri //Alice --execute --gas 7983333376  --proof-size 262144 --url ws://54.198.203.189:9945`
+    5. Invoke Contract's Getter Function on Node 01: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message get --suri //Alice --url ws://54.89.90.13:9945`
+    8. Invoke Contract's Setter Function on Node 02: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message flip --suri //Alice --execute --gas 7983333376  --proof-size 262144 --url ws://54.198.203.189:9945`
     9. Invoke Contract's Getter Function using non-funded Custom Account: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message get --suri "column follow fine steel mosquito tuition gaze spare join area release bitter" --url ws://54.89.90.13:9945`
-    10. Invoke Contract's Setter Function using funded Custom Account: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message flip --suri "tide front tattoo nerve kingdom resist organ recipe chicken chimney area then" --password 12345678 --execute --gas 7983333376  --proof-size 262144 --url ws://54.89.90.13:9945`
+    10. Invoke Contract's Setter Function using funded Custom Account on Node 03: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message flip --suri "tide front tattoo nerve kingdom resist organ recipe chicken chimney area then" --password 12345678 --execute --gas 7983333376  --proof-size 262144 --url ws://34.207.133.2:9945`
 
 ## Next: Setting up Multi Node environment
 Steps Involved:
