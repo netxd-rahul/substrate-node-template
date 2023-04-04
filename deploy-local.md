@@ -15,17 +15,17 @@
     1. Test Smart Contract: `cargo test`
     2. Check dependencies: `cargo check -p flipper --release`
     3. Building Release using Cargo Contract CLI: `cargo contract build --release` // Install if needed referring here: https://github.com/paritytech/cargo-contract#installation 
-    4. Instantiate/Deploy Contract using Cargo Contract CLI: `cargo contract instantiate --constructor new --args "false" --suri //Alice --salt $(date +%s) --execute --url ws://54.89.90.13:9945`
+    4. Instantiate/Deploy Contract using Cargo Contract CLI: `cargo contract instantiate --constructor new --args "false" --suri //Alice --salt $(date +%s) --execute --url ws://54.172.7.226:9945`
         - Note: used default alice's account available in dev chain to deploy and pay the gas fee. Alice Account is already prefunded
         - Above command deploys contract on local running dev chain, if no --url flag is mentioned and returns as follows:
         ```
         Code hash 0x55c024762587c9e35117641fb6bd3f9f50c5cfc1038a4b9e8a23c4134e875574
         Contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse                     // Contract ID
         ```
-    5. Invoke Contract's Getter Function on Node 01: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message get --suri //Alice --url ws://54.89.90.13:9945`
-    8. Invoke Contract's Setter Function on Node 02: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message flip --suri //Alice --execute --gas 7983333376  --proof-size 262144 --url ws://54.198.203.189:9945`
-    9. Invoke Contract's Getter Function using non-funded Custom Account: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message get --suri "column follow fine steel mosquito tuition gaze spare join area release bitter" --url ws://54.89.90.13:9945`
-    10. Invoke Contract's Setter Function using funded Custom Account on Node 03: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message flip --suri "tide front tattoo nerve kingdom resist organ recipe chicken chimney area then" --password 12345678 --execute --gas 7983333376  --proof-size 262144 --url ws://34.207.133.2:9945`
+    5. Invoke Contract's Getter Function on Node 01: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message get --suri //Alice --url ws://54.172.7.226:9945`
+    8. Invoke Contract's Setter Function on Node 02: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message flip --suri //Alice --execute --gas 7983333376  --proof-size 262144 --url ws://54.173.192.129:9945`
+    9. Invoke Contract's Getter Function using non-funded Custom Account: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message get --suri "column follow fine steel mosquito tuition gaze spare join area release bitter" --url ws://54.172.7.226:9945`
+    10. Invoke Contract's Setter Function using funded Custom Account on Node 03: `cargo contract call --contract 5FzSzfkW1CCfxPsw2wzQddDwLr8DeRzXBhobRyYfhYrtGfse --message flip --suri "tide front tattoo nerve kingdom resist organ recipe chicken chimney area then" --password 12345678 --execute --gas 7983333376  --proof-size 262144 --url ws://54.81.83.101:9945`
 
 ## Next: Setting up Multi Node environment
 Steps Involved:
@@ -33,6 +33,9 @@ Steps Involved:
 2. Generate AURA and GRANDPA Keys
 3. Update Custom Chain Specification accordingly with updated keys # In current repository, we've already pushed an updated chainSpec.json | To generate: `./target/release/node-template build-spec --disable-default-bootnode --chain local > customSpec.json` then `./target/release/node-template build-spec --chain=customSpec.json --raw --disable-default-bootnode > customSpecRaw.json`
 4. Spin Nodes
+- Node 01: 54.172.7.226 
+- Node 02: 54.173.192.129
+- Node 03: 54.81.83.101
 
 ### Purge Any Existing Chain, if any: 
 `./target/release/node-template purge-chain --base-path /tmp/alice --chain local`
@@ -156,7 +159,7 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --rpc-external \
     --rpc-cors all 
     ```
-      - Node Identity: 12D3KooWR93KVfCTyzXqdXY5bWMP4wCQawTFMR4zKNWZhMTrgFAc
+      - Node Identity: 12D3KooWGSn5xc1w7p7f3EdKxL5MWwigpXD5WLS9Dibo9hAcJswq
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node01 \
@@ -203,13 +206,13 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --validator \
     --rpc-methods Unsafe \
     --name Node02 \
-    --bootnodes /ip4/54.89.90.13/tcp/30333/p2p/12D3KooWR93KVfCTyzXqdXY5bWMP4wCQawTFMR4zKNWZhMTrgFAc \
+    --bootnodes /ip4/54.172.7.226/tcp/30333/p2p/12D3KooWGSn5xc1w7p7f3EdKxL5MWwigpXD5WLS9Dibo9hAcJswq \
     --password-interactive \
     --ws-external \
     --rpc-external \
     --rpc-cors all 
     ```
-      - Node Identity: 12D3KooWSZGo2YCoFoed7fm9YgJXmH7a1MzRB8uCJhPLxwH6utyx
+      - Node Identity: 12D3KooWMTZY6rmcfe5a9QeyJ1Ej34UbWQZ2wAf3UnMdASg9WDkA
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node02 \
@@ -256,13 +259,13 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
     --validator \
     --rpc-methods Unsafe \
     --name Node03 \
-    --bootnodes /ip4/54.89.90.13/tcp/30333/p2p/12D3KooWR93KVfCTyzXqdXY5bWMP4wCQawTFMR4zKNWZhMTrgFAc \
+    --bootnodes /ip4/54.172.7.226/tcp/30333/p2p/12D3KooWGSn5xc1w7p7f3EdKxL5MWwigpXD5WLS9Dibo9hAcJswq \
     --password-interactive \
     --ws-external \
     --rpc-external \
     --rpc-cors all 
     ```
-      - Node Identity: 12D3KooWCiSnReUkxzkdrXZ7zQYgB6MqQooxsPeT7yyzhkDuyZa5
+      - Node Identity: 12D3KooWRm3N6AAUMHPQXjLVmFWAM9SWAX6uzGSpKYpabwwyU5bw
       - Add keys to the keystore; aura authority keys to enable block production; grandpa authority keys to enable block finalization.
       ```
       ./target/release/node-template key insert --base-path /tmp/node03 \
@@ -288,6 +291,18 @@ Secret phrase:       taste seek proof milk scene trumpet account run toilet abso
   - state root hash: 0x2dd7046e55d09c05af2c4126f3a5715f2d5fa808a553548bab5a1a97f4babb02
   - Genesis block/state (state: 0x2dd7046e55d09c05af2c4126f3a5715f2d5fa808a553548bab5a1a97f4babb02, header-hash: 0x2dd7…bb02)
 
+### RPC Invocation
+Crate Required: pallet-contracts-rpc-runtime-api = "3.0.0"
+```sh
+# To view what all RPC methods are supported by Node
+$ curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "rpc_methods"}' http://localhost:9933/
+
+# Instantiating a Contract
+$ curl -H "Content-Type:application/json" -d '{ "jsonrpc":"2.0", "method":"contractInstantiate", "params":{ "from": "<sender_address>", "contractCode": "<base64_encoded_wasm>", "endowment": "<amount>", "gasLimit": "<gas_limit>", "salt": "<salt>", "constructor": "<constructor_args>" }, "id":1 }' http://<node_address>:<node_port>
+
+# Calling a Contract Method
+$ curl -H "Content-Type:application/json" -d '{ "jsonrpc":"2.0", "method":"contractCall", "params":{"contract": "<contract_address>", "message": "<method_name>", "endowment": "<amount>", "suri": "<suri>",   },"id":1 }' http://<node_address>:<node_port>
+```
 ### Substrate Predefined Accounts
 ```
 Alice
