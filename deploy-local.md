@@ -5,10 +5,31 @@
 2. `git checkout pallet-contract-v0.9.37`
 3. Check dependencies: `cargo check -p node-template-runtime --release`
 4. Build Release: `cargo build --release`
-5. Run: `./target/release/node-template --dev --ws-external`
+5. Run: `./target/release/node-template --dev --ws-external` or 
+```
+./target/release/node-template \
+--alice \
+--force-authoring \
+--unsafe-rpc-external \
+--unsafe-ws-external \
+--telemetry-url "wss://telemetry.polkadot.io/submit/ 0" \
+--prometheus-external \
+--rpc-cors all \
+--tmp \
+--state-pruning archive \
+--blocks-pruning archive \
+--ws-max-connections 20000 \
+--rpc-max-subscriptions-per-connection 2048
+```
+
+
 
 ### Notes
 1. The above run command initiates a `dev` chain of substrate which is pre configured with some accounts and balances
+2. maximum number of transactions in the transaction pool: 8192
+3. maximum RPC request payload size for both HTTP and WS: 15MiB
+4. maximum RPC response payload size for both HTTP and WS: 15MiB
+5. maximum concurrent subscriptions per connection: 1024
 
 ## Next: Deploying Smart Contract
 - Deploy the smart contract referring here: https://github.com/paritytech/ink-playgroung-flipper on above initiated chain
